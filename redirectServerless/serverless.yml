@@ -10,9 +10,9 @@ custom:
 plugins:
   - serverless-plugin-cloudfront-lambda-edge
 
-package:
-  exclude:
-    - 'node_modules/**'
+  # package:
+#   exclude:
+#     - 'node_modules/**'
 
 provider:
   name: aws
