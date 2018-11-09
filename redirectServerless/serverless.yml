@@ -1,4 +1,4 @@
-service: redirect-serverless-6
+service: redirect-serverless
 
 custom:
   defaultRegion: us-east-1
@@ -10,10 +10,10 @@ custom:
 plugins:
   - serverless-plugin-cloudfront-lambda-edge
 
-  # package:
-#   exclude:
-#     - 'node_modules/**'
-
+package:
+  exclude:
+    - 'node_modules/**'
+    
 provider:
   name: aws
   runtime: nodejs8.10
@@ -36,10 +36,6 @@ functions:
     lambdaAtEdge:
       distribution: 'WebsiteDistribution'
       eventType: 'origin-request'
-  save:
-    handler: handler.save
-    environment:
-      BUCKET: ${self:custom.objectPrefix}
 resources:
    Resources:
       WebsiteBucket:
